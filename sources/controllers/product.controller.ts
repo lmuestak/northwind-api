@@ -9,11 +9,11 @@ export class ProductController extends BaseController
 
     public override initialize() 
     {
-        this.router.get(`${this.apiBaseUrl}/`, passport.authenticate( 'jwt', { session: false }), this.selectAll);
-        this.router.get(`${this.apiBaseUrl}/:id`, passport.authenticate( 'jwt', { session: false }), this.selectOne);
-        this.router.get(`${this.apiBaseUrl}/:id/category`, passport.authenticate( 'jwt', { session: false }), this.getCategoryByProductId);
-        this.router.get(`${this.apiBaseUrl}/:id/supplier`, passport.authenticate( 'jwt', { session: false }), this.getSupplierByProductId);
-        this.router.get(`${this.apiBaseUrl}/:id/order-details`, passport.authenticate( 'jwt', { session: false }), this.getOrderDetailsByProductId);
+        this.router.get(`${this.apiBaseUrl}/`, passport.authenticate( 'jwt', { session: false }), this.all);
+        this.router.get(`${this.apiBaseUrl}/:id`, passport.authenticate( 'jwt', { session: false }), this.one);
+        this.router.get(`${this.apiBaseUrl}/:id/category`, passport.authenticate( 'jwt', { session: false }), this.category);
+        this.router.get(`${this.apiBaseUrl}/:id/supplier`, passport.authenticate( 'jwt', { session: false }), this.supplier);
+        this.router.get(`${this.apiBaseUrl}/:id/order-details`, passport.authenticate( 'jwt', { session: false }), this.orderDetails);
     }
 
     public override get apiBaseUrl () : string
@@ -21,7 +21,7 @@ export class ProductController extends BaseController
         return `${super.apiBaseUrl}/product`;
     }
 
-    async selectAll(request: Request, response: Response, next: NextFunction) 
+    async all(request: Request, response: Response, next: NextFunction) 
     {
         try 
         {
@@ -37,7 +37,7 @@ export class ProductController extends BaseController
         }
     }
 
-    async selectOne(request: Request, response: Response, next: NextFunction) 
+    async one(request: Request, response: Response, next: NextFunction) 
     {
         try 
         {
@@ -63,7 +63,7 @@ export class ProductController extends BaseController
         }
     }
 
-    async getCategoryByProductId(request: Request, response: Response, next: NextFunction) 
+    async category(request: Request, response: Response, next: NextFunction) 
     {
         try 
         {
@@ -88,7 +88,7 @@ export class ProductController extends BaseController
         }
     }
 
-    async getSupplierByProductId(request: Request, response: Response, next: NextFunction) 
+    async supplier(request: Request, response: Response, next: NextFunction) 
     {
         try 
         {
@@ -113,7 +113,7 @@ export class ProductController extends BaseController
         }
     }
     
-    async getOrderDetailsByProductId(request: Request, response: Response, next: NextFunction) 
+    async orderDetails(request: Request, response: Response, next: NextFunction) 
     {
         try 
         {

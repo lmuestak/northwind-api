@@ -15,9 +15,9 @@ export class CategoryController extends BaseController
 
     public override initialize() 
     {
-        this.router.get(`${this.apiBaseUrl}/`, passport.authenticate( 'jwt', { session: false }), this.selectAll);
-        this.router.get(`${this.apiBaseUrl}/:id`, passport.authenticate( 'jwt', { session: false }), this.selectOne);
-        this.router.get(`${this.apiBaseUrl}/:id/products`, passport.authenticate( 'jwt', { session: false }), this.selectProductsByCategoryId);
+        this.router.get(`${this.apiBaseUrl}/`, passport.authenticate( 'jwt', { session: false }), this.all);
+        this.router.get(`${this.apiBaseUrl}/:id`, passport.authenticate( 'jwt', { session: false }), this.one);
+        this.router.get(`${this.apiBaseUrl}/:id/products`, passport.authenticate( 'jwt', { session: false }), this.products);
         this.router.post(`${this.apiBaseUrl}/`, passport.authenticate( 'jwt', { session: false }), this.categoryValidationRules, this.insert);
         this.router.put(`${this.apiBaseUrl}/:id`, passport.authenticate( 'jwt', { session: false }), this.categoryValidationRules, this.update);
         this.router.delete(`${this.apiBaseUrl}/:id`, passport.authenticate( 'jwt', { session: false }), this.delete);
@@ -28,7 +28,7 @@ export class CategoryController extends BaseController
         return `${super.apiBaseUrl}/category`;
     }
 
-    async selectOne(request: Request, response: Response, next: NextFunction) 
+    async one(request: Request, response: Response, next: NextFunction) 
     {
         try 
         {
@@ -54,7 +54,7 @@ export class CategoryController extends BaseController
         }
     }
 
-    async selectAll(request: Request, response: Response, next: NextFunction) 
+    async all(request: Request, response: Response, next: NextFunction) 
     {
         try 
         {
@@ -165,7 +165,7 @@ export class CategoryController extends BaseController
         }
     }
 
-    async selectProductsByCategoryId(request: Request, response: Response, next: NextFunction) 
+    async products(request: Request, response: Response, next: NextFunction) 
     {
         try 
         {
