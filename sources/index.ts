@@ -11,6 +11,7 @@ import { CategoryController } from './controllers/category.controller';
 import { ProductController } from './controllers/product.controller';
 import { CustomerController } from './controllers/customer.controller';
 import { EmployeeController } from './controllers/employee.controller';
+import { OrderController } from './controllers/order.controller';
 
 
 
@@ -32,7 +33,8 @@ const controllers =
     new CategoryController(),
     new ProductController(),
     new CustomerController(),
-    new EmployeeController()
+    new EmployeeController(),
+    new OrderController()
 ];
 
 const app = new NorthwindApplication({port: port, data_source: DataSource,  express: express(), middlewares: middlewares, controllers: controllers});
