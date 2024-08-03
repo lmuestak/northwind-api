@@ -12,6 +12,8 @@ import { ProductController } from './controllers/product.controller';
 import { CustomerController } from './controllers/customer.controller';
 import { EmployeeController } from './controllers/employee.controller';
 import { OrderController } from './controllers/order.controller';
+import { SupplierController } from './controllers/supplier.controller';
+import { ShipperController } from './controllers/shipper.controller';
 
 
 
@@ -34,7 +36,9 @@ const controllers =
     new ProductController(),
     new CustomerController(),
     new EmployeeController(),
-    new OrderController()
+    new OrderController(),
+    new SupplierController(),
+    new ShipperController()
 ];
 
 const app = new NorthwindApplication({port: port, data_source: DataSource,  express: express(), middlewares: middlewares, controllers: controllers});
