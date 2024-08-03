@@ -9,6 +9,7 @@ import { AuthenticationController } from './controllers/authentication.controlle
 import { DataSource } from './infrastructure/sqlite.database';
 import { CategoryController } from './controllers/category.controller';
 import { ProductController } from './controllers/product.controller';
+import { CustomerController } from './controllers/customer.controller';
 
 
 
@@ -28,7 +29,8 @@ const controllers =
 [
     new AuthenticationController(),
     new CategoryController(),
-    new ProductController()
+    new ProductController(),
+    new CustomerController
 ];
 
 const app = new NorthwindApplication({port: port, data_source: DataSource,  express: express(), middlewares: middlewares, controllers: controllers});
