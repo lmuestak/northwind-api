@@ -40,13 +40,13 @@ export class CategoryController extends BaseController
                     const category = await DataSource.getRepository(Category).findOne( { where: { categoryId: id }});
 
                     if (!category) 
-                        return super.jsonResponse(response, 400, false, 'Error occured.', null, [ { message: `Cannot find category with the id '${id}'.` } ]);
+                        return super.jsonResponse(response, 400, false, 'FAILURE', null, [ { message: `cannot find category with the id '${id}'.` } ]);
                     else
-                        return super.jsonResponse(response, 200, true, 'Category found.', category, null);
+                        return super.jsonResponse(response, 200, true, 'SUCCESS', category, null);
                 }
-                return super.jsonResponse(response, 400, false, `Error occured.`, null, [ { message: `Invalid category id '${id}'.` } ]);
+                return super.jsonResponse(response, 400, false, 'FAILURE', null, [ { message: `category id '${id}' invalid.` } ]);
             }
-            return super.jsonResponse(response, 400, false, `Error occured.`, null, [ { message: 'Category id must be entered.' } ]);
+            return super.jsonResponse(response, 400, false, 'FAILURE', null, [ { message: 'category id must be entered.' } ]);
         } 
         catch (error: any) 
         {
@@ -60,9 +60,9 @@ export class CategoryController extends BaseController
         {
             const categories = await DataSource.getRepository(Category).find({});
             if (!categories) 
-                return super.jsonResponse(response, 400, false, 'Error occured.', null, [ { message: `Cannot find categories.` } ]);
+                return super.jsonResponse(response, 400, false, 'FAILURE', null, [ { message: `cannot find categories.` } ]);
             else
-                return super.jsonResponse(response, 200, true, `${categories.length} item(s) found.`, categories, null);
+                return super.jsonResponse(response, 200, true, 'SUCCESS', categories, null);
         } 
         catch (error: any) 
         {
@@ -88,9 +88,9 @@ export class CategoryController extends BaseController
             category = await DataSource.getRepository(Category).findOne({ where: { categoryId: category.categoryId }});
             
             if (!category) 
-                return super.jsonResponse(response, 400, false, 'Error occured.', null, [ { message: `Cannot find category.` } ]);
+                return super.jsonResponse(response, 400, false, 'FAILURE', null, [ { message: `cannot find category.` } ]);
             else
-                return super.jsonResponse(response, 200, true, 'Category successfully created.', category, null);
+                return super.jsonResponse(response, 200, true, 'SUCCESS', category, null);
         } 
         catch (error: any) 
         {
@@ -111,7 +111,7 @@ export class CategoryController extends BaseController
                     let category = await DataSource.getRepository(Category).findOne( { where: { categoryId: id }});
                     if (!category) 
                     {
-                        return super.jsonResponse(response, 400, false, 'Error occured.', null, [ { message: `Cannot find category with the id '${id}'.` } ]);
+                        return super.jsonResponse(response, 400, false, 'FAILURE', null, [ { message: `cannot find category with the id '${id}'.` } ]);
                     }
                     else
                     {
@@ -121,12 +121,12 @@ export class CategoryController extends BaseController
                         if(description && description != category.description)
                             category.description = description;
                         category = await DataSource.manager.save<Category>(category);
-                        return super.jsonResponse(response, 200, true, 'Category successfully updated.', category, null);
+                        return super.jsonResponse(response, 200, true, 'SUCCESS', category, null);
                     }
                 }
-                return super.jsonResponse(response, 400, false, `Error occured.`, null, [ { message: 'Category id must be entered.' } ]);       
+                return super.jsonResponse(response, 400, false, 'FAILURE', null, [ { message: 'category id must be entered.' } ]);       
             } 
-            return super.jsonResponse(response, 400, false, `Error occured.`, null, [ { message: 'Category id must be entered.' } ]);
+            return super.jsonResponse(response, 400, false, 'FAILURE', null, [ { message: 'category id must be entered.' } ]);
         }
         catch (error: any) 
         {
@@ -147,17 +147,17 @@ export class CategoryController extends BaseController
 
                     if (!category) 
                     {
-                        return super.jsonResponse(response, 400, false, 'Error occured.', null, [ { message: `Cannot find category with the id '${id}'.` } ]);
+                        return super.jsonResponse(response, 400, false, 'FAILURE', null, [ { message: `cannot find category with the id '${id}'.` } ]);
                     }
                     else
                     {
                         await DataSource.manager.delete(Category, category.categoryId);
-                        return super.jsonResponse(response, 200, true, 'Category successfully deleted.', category, null);
+                        return super.jsonResponse(response, 200, true, 'SUCCESS', category, null);
                     }
                 }
-                return super.jsonResponse(response, 400, false, `Error occured.`, null, [ { message: `Invalid category id '${id}'.` } ]);
+                return super.jsonResponse(response, 400, false, 'FAILURE', null, [ { message: `category id '${id}' invalid.` } ]);
             }
-            return super.jsonResponse(response, 400, false, `Error occured.`, null, [ { message: 'Category id must be entered.' } ]);
+            return super.jsonResponse(response, 400, false, 'FAILURE', null, [ { message: 'category id must be entered.' } ]);
         } 
         catch (error: any) 
         {
@@ -178,17 +178,17 @@ export class CategoryController extends BaseController
 
                     if (!category) 
                     {
-                        return super.jsonResponse(response, 400, false, 'Error occured.', null, [ { message: `Cannot find category with the id '${id}'.` } ]);
+                        return super.jsonResponse(response, 400, false, 'FAILURE', null, [ { message: `cannot find category with the id '${id}'.` } ]);
                     }
                     else
                     {
                         const products = category.products;
-                        return super.jsonResponse(response, 200, true, `${products.length} item(s) found.`, products, null);
+                        return super.jsonResponse(response, 200, true, 'SUCCESS', products, null);
                     }
                 }
-                return super.jsonResponse(response, 400, false, `Error occured.`, null, [ { message: `Invalid category id '${id}'.` } ]);
+                return super.jsonResponse(response, 400, false, 'FAILURE', null, [ { message: `category id '${id}' invalid.` } ]);
             }
-            return super.jsonResponse(response, 400, false, `Error occured.`, null, [ { message: 'Category id must be entered.' } ]);
+            return super.jsonResponse(response, 400, false, 'FAILURE', null, [ { message: 'category id must be entered.' } ]);
         } 
         catch (error: any) 
         {

@@ -8,6 +8,7 @@ import passport from './configuration/passport.configuration';
 import { AuthenticationController } from './controllers/authentication.controller';
 import { DataSource } from './infrastructure/sqlite.database';
 import { CategoryController } from './controllers/category.controller';
+import { ProductController } from './controllers/product.controller';
 
 
 
@@ -26,7 +27,8 @@ const middlewares =
 const controllers = 
 [
     new AuthenticationController(),
-    new CategoryController()
+    new CategoryController(),
+    new ProductController()
 ];
 
 const app = new NorthwindApplication({port: port, data_source: DataSource,  express: express(), middlewares: middlewares, controllers: controllers});
