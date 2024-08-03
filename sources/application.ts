@@ -126,7 +126,7 @@ export class NorthwindApplication
                     this._routes.push(`OPTIONS ${r.route.path}`);
             }
         });
-        this._routes.sort((one, two) => (one > two ? -1 : 1)).reverse();
+        this._routes;//.sort((one, two) => (one > two ? -1 : 1));//.reverse();
     }
 
     public async run()
