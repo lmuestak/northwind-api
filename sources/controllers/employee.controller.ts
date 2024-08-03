@@ -13,10 +13,10 @@ export class EmployeeController extends BaseController
         this.router.get(`${this.apiBaseUrl}/`, passport.authenticate( 'jwt', { session: false }), this.all);
         this.router.get(`${this.apiBaseUrl}/:id`, passport.authenticate( 'jwt', { session: false }), this.one);
         this.router.get(`${this.apiBaseUrl}/:id/manager`, passport.authenticate( 'jwt', { session: false }), this.manager);
-        this.router.get(`${this.apiBaseUrl}/:id/worker`, passport.authenticate( 'jwt', { session: false }), this.workers);
-        this.router.get(`${this.apiBaseUrl}/:id/order`, passport.authenticate( 'jwt', { session: false }), this.orders);
-        this.router.get(`${this.apiBaseUrl}/:id/order/:oid`, passport.authenticate( 'jwt', { session: false }), this.order_details);
-        this.router.get(`${this.apiBaseUrl}/:id/territory`, passport.authenticate( 'jwt', { session: false }), this.territories);
+        this.router.get(`${this.apiBaseUrl}/:id/workers`, passport.authenticate( 'jwt', { session: false }), this.workers);
+        this.router.get(`${this.apiBaseUrl}/:id/orders`, passport.authenticate( 'jwt', { session: false }), this.orders);
+        this.router.get(`${this.apiBaseUrl}/:id/orders/:oid`, passport.authenticate( 'jwt', { session: false }), this.order_details);
+        this.router.get(`${this.apiBaseUrl}/:id/territories`, passport.authenticate( 'jwt', { session: false }), this.territories);
     }
 
     public override get apiBaseUrl () : string
