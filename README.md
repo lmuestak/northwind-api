@@ -1,4 +1,4 @@
-A RESTful API implementation for the Northwind database sing Node.JS, Express, TypeORM, passport, passport-jwt ans swagger-ui
+A RESTful API implementation for the Northwind database using Node.JS, Express, TypeORM, passport, passport-jwt ans swagger-ui
 
 
 https://typeorm.io/
