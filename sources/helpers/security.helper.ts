@@ -96,7 +96,7 @@ export class SecurityHelper
         const algorithm: Algorithm = config.jwt.options.algorithm as Algorithm;
         let jwtOptions: SignOptions = 
         {
-            expiresIn: config.jwt.options.expiresIn,
+            expiresIn: Number.parseInt(config.jwt.options.expiresIn!),
             issuer: config.jwt.options.issuer,
             audience: config.jwt.options.audience,
             algorithm: algorithm

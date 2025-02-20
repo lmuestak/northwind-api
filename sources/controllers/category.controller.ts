@@ -1,3 +1,27 @@
+/**
+ * @swagger
+ *  components:
+ *      schemas:
+ *          Category:
+ *              type: object
+ *              required:
+ *                  - categoryName
+ *              properties:
+ *                  categoryId:
+ *                      type: number
+ *                      description: The auto-generated id of the category
+ *                  categoryName: 
+ *                      type: string
+ *                      description: The name of the category
+*                  description: 
+ *                      type: string
+ *                      description: The description of the category
+ *             example:
+ *              categoryId: 1
+ *              categoryName: Beverages
+ *              description: Beverages
+ */
+
 import { Request, Response, NextFunction } from 'express';
 import { body, validationResult } from 'express-validator';
 import { BaseController } from '../infrastructure/controller.base';
@@ -28,7 +52,7 @@ export class CategoryController extends BaseController
         return `${super.apiBaseUrl}/category`;
     }
 
-    async one(request: Request, response: Response, next: NextFunction) 
+    async one(request: Request, response: Response, next: NextFunction): Promise<any>
     {
         try 
         {
@@ -54,7 +78,7 @@ export class CategoryController extends BaseController
         }
     }
 
-    async all(request: Request, response: Response, next: NextFunction) 
+    async all(request: Request, response: Response, next: NextFunction) : Promise<any>
     {
         try 
         {
@@ -70,7 +94,7 @@ export class CategoryController extends BaseController
         }
     }
 
-    async insert(request: Request, response: Response, next: NextFunction) 
+    async insert(request: Request, response: Response, next: NextFunction) : Promise<any>
     {
         try 
         {
@@ -98,7 +122,7 @@ export class CategoryController extends BaseController
         }
     }
 
-    async update(request: Request, response: Response, next: NextFunction) 
+    async update(request: Request, response: Response, next: NextFunction) : Promise<any>
     {
         try 
         {
@@ -134,7 +158,7 @@ export class CategoryController extends BaseController
         }
     }
 
-    async delete(request: Request, response: Response, next: NextFunction) 
+    async delete(request: Request, response: Response, next: NextFunction) : Promise<any>
     {
         try 
         {
@@ -165,7 +189,7 @@ export class CategoryController extends BaseController
         }
     }
 
-    async products(request: Request, response: Response, next: NextFunction) 
+    async products(request: Request, response: Response, next: NextFunction) : Promise<any>
     {
         try 
         {

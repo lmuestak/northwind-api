@@ -24,11 +24,23 @@ export class AuthenticationController extends BaseController
     {
         return `${super.apiBaseUrl}/auth`;
     }
-
-    async login(request: Request, response: Response, next: NextFunction) 
+    
+    /**
+     * @swagger
+     * /api/v1/auth/login:
+     *      get:
+     *          summary: Retrieve a list of x
+     *          description: a list aodd
+     * @param request 
+     * @param response 
+     * @param next 
+     * @returns 
+     */
+    async login(request: Request, response: Response, next: NextFunction): Promise<any> 
     {
         try 
         {
+            console.log(request.headers);
             const errors = validationResult(request);
             if (!errors.isEmpty()) return super.jsonResponse(response, 400, false, 'Login data incomplete.', null, errors.array());
 
@@ -66,7 +78,7 @@ export class AuthenticationController extends BaseController
         }
     }
 
-    async refresh(request: Request, response: Response, next: any) 
+    async refresh(request: Request, response: Response, next: any) : Promise<any> 
     {
         const { refreshToken } = request.body;
         if (!refreshToken) return super.jsonResponse(response, 400, false, 'Failure', null, [{ field: 'refreshToken', constraint: 'required', message: 'Refreshtoken cannot be empty or null' }]);
