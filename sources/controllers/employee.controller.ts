@@ -24,7 +24,7 @@ export class EmployeeController extends BaseController
         return `${super.apiBaseUrl}/employee`;
     }
 
-    async all(request: Request, response: Response, next: NextFunction) 
+    async all(request: Request, response: Response, next: NextFunction) : Promise<any>
     {
         try 
         {
@@ -40,7 +40,7 @@ export class EmployeeController extends BaseController
         }
     }
 
-    async one(request: Request, response: Response, next: NextFunction) 
+    async one(request: Request, response: Response, next: NextFunction) : Promise<any>
     {
         try 
         {
@@ -65,7 +65,7 @@ export class EmployeeController extends BaseController
         }
     }
 
-    async manager(request: Request, response: Response, next: NextFunction) 
+    async manager(request: Request, response: Response, next: NextFunction) : Promise<any>
     {
         try 
         {
@@ -90,7 +90,7 @@ export class EmployeeController extends BaseController
         }
     }
 
-    async workers(request: Request, response: Response, next: NextFunction) 
+    async workers(request: Request, response: Response, next: NextFunction) : Promise<any>
     {
         try 
         {
@@ -115,7 +115,7 @@ export class EmployeeController extends BaseController
         }
     }
 
-    async orders(request: Request, response: Response, next: NextFunction) 
+    async orders(request: Request, response: Response, next: NextFunction) : Promise<any>
     {
         try 
         {
@@ -140,7 +140,7 @@ export class EmployeeController extends BaseController
         }
     }
 
-    async territories(request: Request, response: Response, next: NextFunction) 
+    async territories(request: Request, response: Response, next: NextFunction) : Promise<any>
     {
         try 
         {
@@ -165,7 +165,7 @@ export class EmployeeController extends BaseController
         }
     }
 
-    async order_details(request: Request, response: Response, next: NextFunction) 
+    async order_details(request: Request, response: Response, next: NextFunction) : Promise<any>
     {
         try 
         {

@@ -1,9 +1,9 @@
 import * as http from 'http';
-import { Application, Router } from 'express';
+import swaggerUi from 'swagger-ui-express';
+import { Application } from 'express';
 import { SecurityHelper } from './helpers/security.helper';
 import { DataSource } from 'typeorm';
-import { initialize } from 'passport';
-import { Employee } from './models/employee.model';
+import { swaggerConfigurationOptions, swaggerSpecification } from './configuration/swagger.configuration';
 
 export class NorthwindApplication
 {
@@ -94,6 +94,8 @@ export class NorthwindApplication
             );
             this._application.use('/', controller.router)
         });
+
+        this._application.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecification, swaggerConfigurationOptions));
     }
 
     private security() 
@@ -126,7 +128,7 @@ export class NorthwindApplication
                     this._routes.push(`OPTIONS ${r.route.path}`);
             }
         });
-        this._routes;//.sort((one, two) => (one > two ? -1 : 1));//.reverse();
+        this._routes;
     }
 
     public async run()

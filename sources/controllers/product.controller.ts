@@ -21,7 +21,7 @@ export class ProductController extends BaseController
         return `${super.apiBaseUrl}/product`;
     }
 
-    async all(request: Request, response: Response, next: NextFunction) 
+    async all(request: Request, response: Response, next: NextFunction) : Promise<any>
     {
         try 
         {
@@ -37,7 +37,7 @@ export class ProductController extends BaseController
         }
     }
 
-    async one(request: Request, response: Response, next: NextFunction) 
+    async one(request: Request, response: Response, next: NextFunction) : Promise<any>
     {
         try 
         {
@@ -63,7 +63,7 @@ export class ProductController extends BaseController
         }
     }
 
-    async category(request: Request, response: Response, next: NextFunction) 
+    async category(request: Request, response: Response, next: NextFunction) : Promise<any>
     {
         try 
         {
@@ -88,7 +88,7 @@ export class ProductController extends BaseController
         }
     }
 
-    async supplier(request: Request, response: Response, next: NextFunction) 
+    async supplier(request: Request, response: Response, next: NextFunction) : Promise<any>
     {
         try 
         {
@@ -113,7 +113,7 @@ export class ProductController extends BaseController
         }
     }
     
-    async orderDetails(request: Request, response: Response, next: NextFunction) 
+    async orderDetails(request: Request, response: Response, next: NextFunction) : Promise<any>
     {
         try 
         {

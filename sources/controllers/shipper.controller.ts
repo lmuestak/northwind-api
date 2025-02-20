@@ -19,7 +19,7 @@ export class ShipperController extends BaseController
         return `${super.apiBaseUrl}/shipper`;
     }
 
-    async all(request: Request, response: Response, next: NextFunction) 
+    async all(request: Request, response: Response, next: NextFunction) : Promise<any>
     {
         try 
         {
@@ -35,7 +35,7 @@ export class ShipperController extends BaseController
         }
     }
 
-    async one(request: Request, response: Response, next: NextFunction) 
+    async one(request: Request, response: Response, next: NextFunction) : Promise<any>
     {
         try 
         {
@@ -60,7 +60,7 @@ export class ShipperController extends BaseController
         }
     }
 
-    async orders(request: Request, response: Response, next: NextFunction) 
+    async orders(request: Request, response: Response, next: NextFunction) : Promise<any>
     {
         try 
         {
